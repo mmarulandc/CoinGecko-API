@@ -2,8 +2,9 @@ const chai = require('chai');
 const chainHttp = require('chai-http');
 const app = require('../index');
 const expect = require('chai').expect;
-const userSchema = require('../models/UserModel');
 chai.use(chainHttp);
+
+
 describe('Authentication endpoints', () => {
 	const userData = {
 		name: 'Mateo',
@@ -47,7 +48,7 @@ describe('Authentication endpoints', () => {
         });
     });
     
-    it('It should return error message', (done) => {
+    it('It should return error message with an empty field', (done) => {
       chai.request(app)
       .post('/api/auth/login')
       .send({ username: "", password: userData.password })

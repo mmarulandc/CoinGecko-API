@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const db = require("./config/database");
 const auth = require("./routes/auth");
+const cryptocurrencies = require("./routes/cryptocurrencies");
 const app = express();
 
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 app.use("/api/auth", auth);
+app.use("/api/currencies", cryptocurrencies);
 // app.use("api/login");
 
 

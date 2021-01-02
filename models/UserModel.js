@@ -8,6 +8,7 @@ let UserSchema = new Schema({
 	username: { type: String, required: true, indexes: { unique: true } },
 	password: { type: String, required: true },
 	favoriteCurrency: { type: String, required: true },
+	currencies : [{ type: Schema.Types.ObjectId, ref:'CryptoCurrencies'}]
 });
 
 UserSchema.methods = {

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let CryptoCurrencySchema = new Schema({
+	_creator: { type: Schema.Types.ObjectId, ref: 'Users' },
 	symbol: { type: String, required: true },
 	price: { type: String, required: true },
 	name: { type: String, required: true, indexes: { unique: true } },

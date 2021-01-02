@@ -14,12 +14,14 @@ const login = async (req, res, next) => {
 		if (!isCorrectPassword) {
 			return res.status(401).json({ message: 'Password does not match' });
 		}
-		const token = jwt.sign({ username: userExists.username }, KEYS.JWT_SECRET_KEY, { expiresIn: 3600 });
+		const token = jwt.sign({ username: userExists.username, id: userExists._id }, KEYS.JWT_SECRET_KEY, {
+			expiresIn: "1h",
+		});
 		return res.status(200).json({ token });
 	} catch (error) {
-    console.log(`Ha ocurrido un error ${error.message}`);
+		console.log(`Ha ocurrido un error ${error.message}`);
 		return res.status(500).json({ message: 'something went wrong, try again' });
 	}
-}
+};
 
 module.exports = login;
