@@ -58,37 +58,37 @@ GET /api/currencies/getTop?n=26 400 2.596 ms - 39
       √ It should return error due to n is greater than 25
 ```
 
-#Endpoints
-## api usando puerto 4000
+# Endpoints
+# api usando puerto 4000
 ## /api/auth/signup => POST
-# body
+## body
 * name: text -> obligatorio
 * lastname: text -> obligatorio,
 * username: text -> obligatorio,
 * password: text -> obligatorio
 * favoriteCurrency: text -> obligatorio (usd, eur, ars)
 
-## /api/auth/login => POST
-# body
+# /api/auth/login => POST
+## body
 * username: text -> obligatorio,
 * password: text -> obligatorio,
 * retorna JWT para autenticación
 
-## /api/currencies/getAllCurrencies => GET
+# /api/currencies/getAllCurrencies => GET
 * Authentication header jwt token requerido
-# querystring
+## querystring
 * page -> por defecto es 1
 * per_page -> por defecto 100 max 250
 
 
-## /api/currencies/addCurrency => POST
+# /api/currencies/addCurrency => POST
 * Authentication header jwt token requerido
-# body
+## body
 * name: text -> obligatorio (se refiere al nombre de la criptomoneda a agregar.) ref: /api/currencies/getAllCurrencies
 
 
-## /api/currencies/getTop => GET
+# /api/currencies/getTop => GET
 * Authentication header jwt token requerido
-# querystring
+## querystring
 * n -> se refiere al top n de criptomonedas por usuario (no debe ser mayor de 25)
 * order -> se refiere al orden como se muestran los resultados (asc o desc) respectivamente por defecto es desc
