@@ -5,7 +5,7 @@ const signup = async (req, res) => {
 	const newUser = new UserSchema({
 		name: name,
 		lastname: lastname,
-		username: username,
+		username: username.toLowerCase(),
 		password: password,
 		favoriteCurrency: favoriteCurrency,
 	});

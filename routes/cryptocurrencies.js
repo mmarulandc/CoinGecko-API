@@ -3,7 +3,6 @@ const router = express.Router();
 const checkAuth = require("../middlewares/check-auth");
 const getAllCrytocurrencies = require("../controllers/cryptocurrencies/getAll");
 const addCurrency = require("../controllers/cryptocurrencies/addCurrency");
-const upload = require('../utils/img-upload');
 const { addCurrencyChecks, validate } = require("../utils/validations");
 const getTop = require("../controllers/cryptocurrencies/getTop");
 

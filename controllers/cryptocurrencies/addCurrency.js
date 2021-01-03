@@ -2,17 +2,8 @@ const UserSchema = require('../../models/UserModel');
 const CryptoCurrencySchema = require('../../models/CryptoCurrencyModel');
 const CoinGecko = require('../../utils/coingecko/coingecko');
 
-const fs = require('fs');
-const path = require('path');
 const mongoose = require('mongoose');
-const cloudinary = require('cloudinary').v2;
-require('dotenv/config');
 
-cloudinary.config({
-	cloud_name: process.env.CLOUD_NAME,
-	api_key: process.env.API_KEY,
-	api_secret: process.env.API_SECRET,
-});
 
 const addCurrency = async (req, res) => {
 	const { name } = req.body;
@@ -25,7 +16,6 @@ const addCurrency = async (req, res) => {
 		const userId = req.userId;
 		const coinDetail = await api.getCoinById(coin.id);
     const foundUser = await UserSchema.findById(userId);
-    
 		if (foundUser) {
 			const data = {
         name: coinDetail.name,
@@ -37,7 +27,7 @@ const addCurrency = async (req, res) => {
 				last_updated: coinDetail.last_updated,
       };
 			const currency = new CryptoCurrencySchema(data);
-      const foundCurency = await CryptoCurrencySchema.find({ name: name });
+      const foundCurency = await CryptoCurrencySchema.find({ name: name, _creator:data._creator });
 			if (foundCurency.length > 0) {
 				return res
 					.status(409)

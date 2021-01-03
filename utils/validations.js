@@ -3,7 +3,7 @@ const { body, validationResult } = require('express-validator');
 const signupChecks = () => {
 	return [
 		body('username').notEmpty().withMessage('username must not be empty'),
-		body('password').isLength({ min: 5 }).withMessage('Password must to have at leat 5 characters'),
+		body('password').isLength({ min: 8 }).withMessage('Password must to have at leat 8 characters'),
 		body('name').notEmpty().withMessage('name must not be empty'),
 		body('lastname').notEmpty().withMessage('lastname must not be empty'),
 		body('favoriteCurrency').notEmpty(),
