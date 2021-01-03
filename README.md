@@ -22,7 +22,7 @@ foo@bar:~/CoinGecko-API/$ npm start
 
 # Cómo correr las pruebas?
 ```console
-foo@bar:~/Node.js-React-App/backend/$ npm test
+foo@bar:~/CoinGecko-API/$ npm test
 
 Db initialized, old data deleted...
 DB is connected test database
