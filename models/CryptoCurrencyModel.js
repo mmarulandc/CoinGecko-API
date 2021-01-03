@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 let CryptoCurrencySchema = new Schema({
 	_creator: { type: Schema.Types.ObjectId, ref: 'Users' },
+	id: {type: String, required: true},
 	symbol: { type: String, required: true },
 	current_price: { type: Number, required: true },
 	name: { type: String, required: true, indexes: { unique: true } },

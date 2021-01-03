@@ -1,4 +1,3 @@
-const CryptoCurrencySchema = require('../../models/CryptoCurrencyModel');
 const UserSchema = require('../../models/UserModel');
 const CoinGecko = require('../../utils/coingecko/coingecko');
 

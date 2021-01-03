@@ -82,5 +82,25 @@ describe('Currency endpoints', () => {
 					done();
 				});
 		});
+		it('It should list the cryptocurrencies top n', (done) => {
+			chai.request(app)
+				.get('/api/currencies/getTop')
+				.set('Authorization', `Bearer ${jwt}`)
+				.end((err, res) => {
+					expect(res).to.have.status(200);
+					expect(res.body).to.have.property('top');
+					done();
+				});
+		});
+		it('It should return error due to n is greater than 25', (done) => {
+			chai.request(app)
+				.get('/api/currencies/getTop?n=26')
+				.set('Authorization', `Bearer ${jwt}`)
+				.end((err, res) => {
+					expect(res).to.have.status(400);
+					expect(res.body).to.have.property('message').have.to.equal('n cant be greater than 25');
+					done();
+				});
+		});
 	});
 });

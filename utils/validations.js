@@ -16,6 +16,7 @@ const loginChecks = () => {
 		body('password').notEmpty().withMessage('The password must no be empty'),
 	];
 };
+
 const addCurrencyChecks = () => {
 	return [body('name').notEmpty().withMessage('The name must no be empty')];
 };

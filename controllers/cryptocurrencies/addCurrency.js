@@ -24,16 +24,18 @@ const addCurrency = async (req, res) => {
 		}
 		const userId = req.userId;
 		const coinDetail = await api.getCoinById(coin.id);
-		const foundUser = await UserSchema.findById(userId);
+    const foundUser = await UserSchema.findById(userId);
+    
 		if (foundUser) {
 			const data = {
-				name: coinDetail.name,
+        name: coinDetail.name,
+        id: coin.id,
 				_creator: mongoose.Types.ObjectId(userId),
 				symbol: coinDetail.symbol,
 				current_price: coinDetail.market_data.current_price[foundUser.favoriteCurrency],
 				image: coinDetail.image.large,
 				last_updated: coinDetail.last_updated,
-			};
+      };
 			const currency = new CryptoCurrencySchema(data);
       const foundCurency = await CryptoCurrencySchema.find({ name: name });
 			if (foundCurency.length > 0) {
