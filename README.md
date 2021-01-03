@@ -60,7 +60,7 @@ GET /api/currencies/getTop?n=26 400 2.596 ms - 39
 
 # Endpoints
 # api usando puerto 4000
-## /api/auth/signup => POST
+# /api/auth/signup => POST
 ## body
 * name: text -> obligatorio
 * lastname: text -> obligatorio,
