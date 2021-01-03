@@ -16,6 +16,9 @@ const loginChecks = () => {
 		body('password').notEmpty().withMessage('The password must no be empty'),
 	];
 };
+const addCurrencyChecks = () => {
+	return [body('name').notEmpty().withMessage('The name must no be empty')];
+};
 
 const validate = (req, res, next) => {
 	const errors = validationResult(req);
@@ -29,4 +32,4 @@ const validate = (req, res, next) => {
 	});
 };
 
-module.exports = { signupChecks, loginChecks, validate };
+module.exports = { signupChecks, loginChecks, addCurrencyChecks, validate };
